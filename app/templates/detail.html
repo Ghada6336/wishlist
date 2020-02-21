@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Detail{% endblock title %}
+
+{% block content %}
+
+<br>
+<div class="card">
+  <h5 class="card-header">Details</h5>
+
+  <div class="card-body">
+    <h5 class="card-title">{{items.name}}</h5>
+    <p class="card-text">{{items.description|linebreaks}}</p>
+
+      <a href="{% url 'create' %}">create</a>
+          <a href="{% url 'delete' %}">delete</a>
+              <a href="{% url 'update' %}">update</a>
+
+  </div>
+
+</div>
+{% endblock content %}
+
+
+<br>
+<div class="card">
+  <h5 class="card-header"> Info</h5>
+  {% if items.logo %}
+    <img class="card-img-top" src="{{item.pic.url}}" alt=".......">
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{items.name}}</h5>
+    <p class="card-text">{{items.description|linebreaks}}</p>
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Our Items</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    {% for item in new %}
+      <li class="list-group-item">
+        <p><b>{{item.name}}</b></p>
+        <p>{{item.description|linebreaks}}</p>
+
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="card-body">
+    <div class="row text-center">
+
+
+
+    </div>
+  </div>
+</div>
